@@ -1,25 +1,29 @@
-//2. Sa se scrie un program care insumeaza elementele intr - o metoda
-//separate de metoda main, folosind transmiterea prin referinta.
+//1. Sa se scrie un program care calculeaza suma elementelor unui
+//vector folosindu - ne doar de variabile de tip pointer.
 #include<stdio.h>
 #include<stdlib.h>
-
-void suma(int *n)
-{
-	int i, s = 0,*v;
-	v = (int*)malloc((*n) * sizeof(int));
-	for (i = 0; i < *n; i++)
-		scanf("%d", &v[i]);
-	for (i = 0; i < *n; i++)
-		s = s + v[i];
-	printf("Suma este %d.\n", s);
-}
 int main()
 {
-	int *n;
-	printf("Cate numere doriti?\n");
-	scanf("%d", &n);
-	suma(&n);
+		int *s, *n, *v, *i;
 
-	system("pause");
-	return 0;
+		s = (int*)malloc(sizeof(int));
+		n = (int*)malloc(sizeof(int));
+		i = (int*)malloc(sizeof(int));
+		printf("Cate numere doriti?\n"); 
+		scanf("%d", n);
+        v = (int*)malloc((*n) * sizeof(int));
+
+		for ((*i) = 0; (*i) < (*n); (*i)++)
+	        scanf("%d", (v + (*i)));
+		
+        (*s) = 0;
+
+		for ((*i) = 0; (*i) < (*n); (*i)++)
+		    (*s) = (*s) + *(v + (*i));
+		
+
+		printf("Suma este %d.\n", *s);
+
+	     system("pause");
+	     return 0;
 }
