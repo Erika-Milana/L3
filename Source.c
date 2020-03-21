@@ -1,26 +1,25 @@
-/*5. Sa se verifice daca operatia BINARA de "SAU" ("OR") aplicata pe un sir de
-"N" numere intregi citit de la tastatura rezulta un numar par sau impar. 
-NU aveti voie sa folositi "%", impartire cu rest / modulo.
-Help: A se consulta tabelul de adevar in cadrul operatilor de tip binary
-*/
-
+//2. Sa se scrie un program care insumeaza elementele intr - o metoda
+//separate de metoda main, folosind transmiterea prin referinta.
 #include<stdio.h>
 #include<stdlib.h>
 
+void suma(int *n)
+{
+	int i, s = 0,*v;
+	v = (int*)malloc((*n) * sizeof(int));
+	for (i = 0; i < *n; i++)
+		scanf("%d", &v[i]);
+	for (i = 0; i < *n; i++)
+		s = s + v[i];
+	printf("Suma este %d.\n", s);
+}
 int main()
 {
-    int n,i,v[50],comp=0;
+	int *n;
 	printf("Cate numere doriti?\n");
 	scanf("%d", &n);
-	for (i = 0; i < n; i++)
-		scanf("%d", &v[i]); 
-	comp = v[0] | v[1];
-	for (i = 2; i < n; i++)
-	comp = v[i] | comp;
-	if ((comp & 1) == 1)
-		printf("Va rezulta un numar impar.\n");
-	else
-		printf("Va rezulta un numar par\n");
+	suma(&n);
+
 	system("pause");
 	return 0;
 }
